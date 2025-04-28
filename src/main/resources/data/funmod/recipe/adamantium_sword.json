@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "funmod:adamantium"
+    },
+    "X": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "A",
+    "A",
+    "X"
+  ],
+  "result": {
+    "count": 1,
+    "id": "funmod:adamantium_sword"
+  }
+}

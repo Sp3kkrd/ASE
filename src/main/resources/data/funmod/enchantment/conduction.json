@@ -1,0 +1,35 @@
+{
+  "description": "Rampant Conduction",
+  "supported_items": "#minecraft:enchantable/weapon",
+  "weight": 1,
+  "max_level": 1,
+  "min_cost": {
+    "base": 0,
+    "per_level_above_first": 0
+  },
+  "max_cost": {
+    "base": 0,
+    "per_level_above_first": 0
+  },
+  "anvil_cost": 0,
+  "slots": [
+    "mainhand"
+  ],
+  "effects": {
+    "minecraft:post_attack": [
+      {
+        "requirements": {
+          "condition": "minecraft:random_chance",
+          "chance": 0.2
+        },
+        "effect": {
+          "type": "minecraft:summon_entity",
+          "entity": "minecraft:lightning_bolt",
+          "join_team": false
+        },
+        "enchanted": "attacker",
+        "affected": "victim"
+      }
+    ]
+  }
+}

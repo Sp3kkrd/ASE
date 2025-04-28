@@ -2,21 +2,16 @@ package com.sedulous.aslightexpansion;
 
 import com.mojang.logging.LogUtils;
 import com.sedulous.aslightexpansion.block.ModBlocks;
+
+
+import com.sedulous.aslightexpansion.entity.ModEntities;
+import com.sedulous.aslightexpansion.entity.custom.SkeletonKing;
 import com.sedulous.aslightexpansion.item.ModItems;
-import net.minecraft.client.Minecraft;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -26,9 +21,6 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -45,7 +37,6 @@ public class FunMod
     public FunMod()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -55,10 +46,13 @@ public class FunMod
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModEntities.register(modEventBus);
+
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
+        modEventBus.addListener(this::registerAttributes);
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
@@ -74,15 +68,36 @@ public class FunMod
 
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.ADAMANTIUM);
+            event.accept(ModItems.ADAMANTIUM_NUGGET);
         }
 
         if(event.getTabKey() == CreativeModeTabs.COMBAT) {
             event.accept(ModItems.ADAMANTIUM_SWORD);
+            event.accept(ModItems.KINGS_CLAYMORE);
+            event.accept(ModItems.MINDS_EYE);
+            event.accept(ModItems.THE_CONDUIT);
+            event.accept(ModItems.MAGMA_RING);
+            event.accept(ModItems.PRIM_SNOW);
+            event.accept(ModItems.TALIS_FER);
+
+            event.accept(ModItems.KINGS_HELMET);
+            event.accept(ModItems.KINGS_CHESTPLATE);
+            event.accept(ModItems.KINGS_LEGGINGS);
+            event.accept(ModItems.KINGS_BOOTS);
+        }
+
+        if(event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(ModItems.ADAMANTIUM_AXE);
+            event.accept(ModItems.ADAMANTIUM_SHOVEL);
+            event.accept(ModItems.ADAMANTIUM_PICKAXE);
         }
 
         if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
             event.accept(ModBlocks.ADAMANTIUM_BLOCK);
         }
+    }
+    private void registerAttributes(EntityAttributeCreationEvent event) {
+        event.put(ModEntities.SKELETON_KING.get(), SkeletonKing.createAttributes().build());
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
