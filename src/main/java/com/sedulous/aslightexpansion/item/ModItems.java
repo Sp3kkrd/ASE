@@ -40,7 +40,7 @@ public class ModItems {
     //Unique Weapons
     public static final RegistryObject<Item> KINGS_CLAYMORE = ITEMS.register("kings_claymore",
             () -> new SwordItem(DIAMOND,new Item.Properties()
-                    .attributes(SwordItem.createAttributes(DIAMOND,13, -2.6f))));
+                    .attributes(SwordItem.createAttributes(DIAMOND,6, -2.6f))));
 
     public static final RegistryObject<Item> MINDS_EYE = ITEMS.register("minds_eye",
                 () -> new MindsEye(UNIQUE,new Item.Properties()
@@ -49,6 +49,12 @@ public class ModItems {
     public static final RegistryObject<Item> THE_CONDUIT = ITEMS.register("the_conduit",
             () -> new TheConduit(UNIQUE,new Item.Properties()
                     .attributes(SwordItem.createAttributes(UNIQUE,10, -3f))));
+
+    public static final RegistryObject<Item> SNOWBALL_GUN = ITEMS.register("snowball_gun",
+            () -> new SnowballGun(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
+
+    public static final RegistryObject<Item> AUTO_SNOWBALL_CANNON = ITEMS.register("auto_snowball_cannon",
+            () -> new AutoSnowballCannon(new Item.Properties().stacksTo(1).rarity(Rarity.RARE))); // Fire rate set to 10 ticks
 
         //Unique Offhand
         public static final RegistryObject<Item> MAGMA_RING = ITEMS.register("magma_ring",
@@ -60,6 +66,18 @@ public class ModItems {
         public static final RegistryObject<Item> TALIS_FER = ITEMS.register("ferocity_talisman",
              () -> new FerocityTalisman(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 
+        //Guns
+    public static final RegistryObject<Item> MAKESHIFT_GUN = ITEMS.register("makeshift_gun",
+            () -> new GunItem(2,15, 13, new Item.Properties().stacksTo(1).rarity(Rarity.COMMON)));
+    public static final RegistryObject<Item> MAKESHIFT_REPEATER = ITEMS.register("makeshift_repeater",
+            () -> new GunItem(3,20, 9, new Item.Properties().stacksTo(1).rarity(Rarity.COMMON)));
+
+        //Unique Guns
+    public static final RegistryObject<Item> ABADDON = ITEMS.register("abaddon",
+            () -> new Abaddon(14,20, 6, new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
+
+
+    //Unique Armor
     public static final RegistryObject<Item> KINGS_HELMET = ITEMS.register("kings_helmet",
             () -> new ArmorItem(ModArmorMaterials.KINGS_MATERIAL, ArmorItem.Type.HELMET,
                     new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(Integer.MAX_VALUE))));

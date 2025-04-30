@@ -2,6 +2,9 @@ package com.sedulous.aslightexpansion.entity;
 
 import com.sedulous.aslightexpansion.FunMod;
 import com.sedulous.aslightexpansion.entity.custom.SkeletonKing;
+import com.sedulous.aslightexpansion.entity.custom.LargeSnowballGunProjectile;
+import com.sedulous.aslightexpansion.entity.custom.SnowballGunProjectile;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -18,6 +21,22 @@ public class ModEntities {
             () -> EntityType.Builder.of(SkeletonKing::new, MobCategory.MONSTER)
                     .sized(0.9F, 2.9F)
                     .build("skeleton_king"));
+
+    public static final RegistryObject<EntityType<SnowballGunProjectile>> SNOWBALL_GUN_PROJECTILE =
+            ENTITY_TYPES.register("snowball_gun_projectile",
+                    () -> EntityType.Builder.<SnowballGunProjectile>of(SnowballGunProjectile::new, MobCategory.MISC)
+                            .sized(0.25F, 0.25F)
+                            .clientTrackingRange(4)
+                            .updateInterval(10)
+                            .build(ResourceLocation.fromNamespaceAndPath(FunMod.MOD_ID, "snowball_gun_projectile").toString()));
+
+    public static final RegistryObject<EntityType<LargeSnowballGunProjectile>> LARGE_SNOWBALL_GUN_PROJECTILE =
+            ENTITY_TYPES.register("large_snowball_gun_projectile",
+                    () -> EntityType.Builder.<LargeSnowballGunProjectile>of(LargeSnowballGunProjectile::new, MobCategory.MISC)
+                            .clientTrackingRange(4)
+                            .updateInterval(10)
+                            .build(ResourceLocation.fromNamespaceAndPath(FunMod.MOD_ID, "large_snowball_gun_projectile").toString()));
+
 
     public static void register(IEventBus eventBus){
         ENTITY_TYPES.register(eventBus);

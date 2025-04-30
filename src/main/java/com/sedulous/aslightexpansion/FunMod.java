@@ -7,6 +7,7 @@ import com.sedulous.aslightexpansion.block.ModBlocks;
 import com.sedulous.aslightexpansion.entity.ModEntities;
 import com.sedulous.aslightexpansion.entity.custom.SkeletonKing;
 import com.sedulous.aslightexpansion.item.ModItems;
+import com.sedulous.aslightexpansion.sound.ModSounds;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -47,6 +48,7 @@ public class FunMod
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModEntities.register(modEventBus);
+        ModSounds.register(modEventBus);
 
 
         // Register the item to a creative tab
@@ -79,6 +81,12 @@ public class FunMod
             event.accept(ModItems.MAGMA_RING);
             event.accept(ModItems.PRIM_SNOW);
             event.accept(ModItems.TALIS_FER);
+
+            event.accept(ModItems.SNOWBALL_GUN);
+            event.accept(ModItems.AUTO_SNOWBALL_CANNON);
+            event.accept(ModItems.MAKESHIFT_GUN);
+            event.accept(ModItems.MAKESHIFT_REPEATER);
+            event.accept(ModItems.ABADDON);
 
             event.accept(ModItems.KINGS_HELMET);
             event.accept(ModItems.KINGS_CHESTPLATE);

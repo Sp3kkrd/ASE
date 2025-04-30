@@ -1,0 +1,11 @@
+{
+  "gunshot": {
+    "category": "player",
+    "sounds": [
+      {
+        "name": "funmod:gunshot",
+        "stream": false
+      }
+    ]
+  }
+}

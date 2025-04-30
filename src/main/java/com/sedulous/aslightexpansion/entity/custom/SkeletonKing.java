@@ -42,9 +42,8 @@ public class SkeletonKing extends Skeleton {
     private static final int TELEGRAPH_DURATION = 40; // 2 seconds at 20 ticks/sec
     private static final int CHARGE_DURATION = 20; // about 1 second
     private static final int CHARGE_COOLDOWN_TICKS = 200; // 10 seconds cooldown
-    private static final double CHARGE_SPEED = 1.5D;
+    private static final double CHARGE_SPEED = 1.2D;
     private static final double CHARGE_DAMAGE = 10.0D;
-    private static final double CHARGE_RANGE = 15.0D; // Charge for 15 blocks
 
     public SkeletonKing(EntityType<? extends SkeletonKing> type, Level level) {
         super(type, level);

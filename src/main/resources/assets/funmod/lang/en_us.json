@@ -10,6 +10,12 @@
   "item.funmod.minds_eye": "Mind's Eye",
   "item.funmod.the_conduit": "The Conduit",
 
+  "item.funmod.snowball_gun": "Snowball Gun",
+  "item.funmod.auto_snowball_cannon": "Automatic Snowball Cannon",
+  "item.funmod.makeshift_gun": "Makeshift Gun",
+  "item.funmod.makeshift_repeater": "Makeshift Repeater",
+  "item.funmod.abaddon": "Abaddon",
+
   "item.funmod.magma_ring": "Magma Ring",
   "item.funmod.primordial_snowglobe": "Primordial Snowglobe",
   "item.funmod.ferocity_talisman": "Talisman of Ferocity",
@@ -18,6 +24,8 @@
   "item.funmod.kings_chestplate": "King's Chestplate",
   "item.funmod.kings_leggings": "King's Leggings",
   "item.funmod.kings_boots": "King's Boots",
+
+  "entitiy.funmod.skeleton_king": "Skeleton King",
 
   "block.funmod.adamantium_block": "Adamantium Block"
 
