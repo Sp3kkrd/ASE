@@ -1,7 +1,9 @@
 package com.sedulous.aslightexpansion.item;
 
+import com.sedulous.aslightexpansion.entity.ModEntities;
 import com.sedulous.aslightexpansion.item.custom.*;
 import net.minecraft.world.item.*;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -67,15 +69,27 @@ public class ModItems {
              () -> new FerocityTalisman(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 
         //Guns
+        public static final RegistryObject<Item> BULLET = ITEMS.register("bullet",
+                () -> new Item(new Item.Properties()));
+
     public static final RegistryObject<Item> MAKESHIFT_GUN = ITEMS.register("makeshift_gun",
             () -> new GunItem(2,15, 13, new Item.Properties().stacksTo(1).rarity(Rarity.COMMON)));
+
     public static final RegistryObject<Item> MAKESHIFT_REPEATER = ITEMS.register("makeshift_repeater",
-            () -> new GunItem(3,20, 9, new Item.Properties().stacksTo(1).rarity(Rarity.COMMON)));
+            () -> new GunItem(3,30, 9, new Item.Properties().stacksTo(1).rarity(Rarity.COMMON)));
+
+    public static final RegistryObject<Item> MACHINE_GUN = ITEMS.register("machine_gun",
+            () -> new GunItem(3,20, 4, new Item.Properties().stacksTo(1).rarity(Rarity.COMMON)));
 
         //Unique Guns
     public static final RegistryObject<Item> ABADDON = ITEMS.register("abaddon",
-            () -> new Abaddon(14,20, 6, new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
+            () -> new Abaddon(11,20, 6, new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
 
+    public static final RegistryObject<Item> NECROMANCER = ITEMS.register("necromancer",
+            () -> new Necromancer(8,15, 4, new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
+
+    public static final RegistryObject<Item> BONECHILLER = ITEMS.register("bonechiller",
+            () -> new Bonechiller(15,30, 20, new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
 
     //Unique Armor
     public static final RegistryObject<Item> KINGS_HELMET = ITEMS.register("kings_helmet",
@@ -90,6 +104,7 @@ public class ModItems {
     public static final RegistryObject<Item> KINGS_BOOTS = ITEMS.register("kings_boots",
             () -> new ArmorItem(ModArmorMaterials.KINGS_MATERIAL, ArmorItem.Type.BOOTS,
                     new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(Integer.MAX_VALUE))));
+
     @SubscribeEvent
         public static void commonSetup(final FMLCommonSetupEvent event) {
             // Any common setup logic can go here

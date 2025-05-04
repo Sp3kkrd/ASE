@@ -1,5 +1,6 @@
 package com.sedulous.aslightexpansion.item.custom;
 
+import com.sedulous.aslightexpansion.item.ModItems;
 import com.sedulous.aslightexpansion.sound.ModSounds;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
@@ -24,9 +25,9 @@ import net.minecraft.world.phys.Vec3;
 import java.util.List;
 
 public class GunItem extends Item {
-    private final float damage;
-    private final float range;
-    private final int cooldownTicks;
+    protected final float damage;
+    protected final float range;
+    protected final int cooldownTicks;
 
     public GunItem(float damage, float range, int fireRateTicks, Properties properties) {
         super(properties);
@@ -39,25 +40,44 @@ public class GunItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
 
-        if (!level.isClientSide && level instanceof ServerLevel serverLevel) {
-            EntityHitResult hitResult = raycastEntities(serverLevel, player, range);
-
-            if (hitResult != null && hitResult.getEntity() instanceof LivingEntity target) {
-                DamageSources sources = serverLevel.damageSources();
-                DamageSource source = sources.playerAttack(player);
-                target.hurt(source, damage);
+        if (!level.isClientSide) {
+            // Check for bullet in inventory
+            boolean hasBullet = false;
+            for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+                ItemStack invStack = player.getInventory().getItem(i);
+                if (invStack.is(ModItems.BULLET.get())) {
+                    invStack.shrink(1); // Consume bullet
+                    hasBullet = true;
+                    break;
+                }
             }
 
-            spawnParticles(serverLevel, player, range);
+            // If no bullet, do nothing
+            if (!hasBullet) {
+                return InteractionResultHolder.fail(stack);
+            }
+
+            // Proceed with firing
+            if (level instanceof ServerLevel serverLevel) {
+                EntityHitResult hitResult = raycastEntities(serverLevel, player, range);
+                if (hitResult != null && hitResult.getEntity() instanceof LivingEntity target) {
+                    DamageSources sources = serverLevel.damageSources();
+                    DamageSource source = sources.playerAttack(player);
+                    applyGunDamage(target, source, damage);
+                }
+
+                spawnParticles(serverLevel, player, range);
+            }
+
+            level.playSound(null, player.getX(), player.getY(), player.getZ(),
+                    ModSounds.GUNSHOT.get(), SoundSource.PLAYERS, 0.5f, 1.0f);
+            player.getCooldowns().addCooldown(this, cooldownTicks);
         }
-        level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSounds.GUNSHOT.get(), SoundSource.PLAYERS, 0.5f, 1.0f);
 
-
-        player.getCooldowns().addCooldown(this, cooldownTicks);
         return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
     }
 
-    private EntityHitResult raycastEntities(ServerLevel level, Player player, double range) {
+    protected EntityHitResult raycastEntities(ServerLevel level, Player player, double range) {
         Vec3 eyePos = player.getEyePosition(1.0F);
         Vec3 look = player.getLookAngle();
         Vec3 reachVec = eyePos.add(look.scale(range));
@@ -68,7 +88,7 @@ public class GunItem extends Item {
         );
     }
 
-    private void spawnParticles(ServerLevel level, Player player, double range) {
+    protected void spawnParticles(ServerLevel level, Player player, double range) {
         Vec3 eyePos = player.getEyePosition(1.0F);
         Vec3 look = player.getLookAngle();
 
@@ -79,14 +99,32 @@ public class GunItem extends Item {
         }
     }
 
+    protected void applyGunDamage(LivingEntity target, DamageSource source, float amount) {
+        if (target.hurt(source, amount)) {
+            // Cancel knockback-like movement from being hurt
+            Vec3 motion = target.getDeltaMovement();
+            target.setDeltaMovement(0, motion.y, 0);  // Preserve Y axis to avoid interfering with jumping/falling
+            target.hurtMarked = true; // Ensures client sync
+
+            // Reduce i-frames to allow faster follow-up shots
+            target.invulnerableTime = 2; // Default is 10; tweak as needed
+        }
+    }
+
 
     @Override
     public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
         super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
-        pTooltipComponents.add(Component.literal(""));
-        pTooltipComponents.add(Component.literal("§7When held:"));
-        pTooltipComponents.add(Component.literal("§2 " + damage + "§2 Damage"));
-        pTooltipComponents.add(Component.literal("§2 " + range + "§2 Range"));
-        pTooltipComponents.add(Component.literal("§2 " + Mth.floor(20f / cooldownTicks) + "§2 Fire Rate" ));
+
+        if (shouldShowBaseTooltip()) {
+            pTooltipComponents.add(Component.literal(""));
+            pTooltipComponents.add(Component.literal("§7When held:"));
+            pTooltipComponents.add(Component.literal("§2 " + damage + "§2 Damage"));
+            pTooltipComponents.add(Component.literal("§2 " + range + "§2 Range"));
+            pTooltipComponents.add(Component.literal("§2 " + Mth.floor(20f / cooldownTicks) + "§2 Fire Rate"));
+        }
+    }
+    protected boolean shouldShowBaseTooltip() {
+        return true;
     }
 }

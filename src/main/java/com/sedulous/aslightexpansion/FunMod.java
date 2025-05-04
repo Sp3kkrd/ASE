@@ -5,9 +5,11 @@ import com.sedulous.aslightexpansion.block.ModBlocks;
 
 
 import com.sedulous.aslightexpansion.entity.ModEntities;
+import com.sedulous.aslightexpansion.entity.client.HumanRenderer;
 import com.sedulous.aslightexpansion.entity.custom.SkeletonKing;
 import com.sedulous.aslightexpansion.item.ModItems;
 import com.sedulous.aslightexpansion.sound.ModSounds;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -87,6 +89,11 @@ public class FunMod
             event.accept(ModItems.MAKESHIFT_GUN);
             event.accept(ModItems.MAKESHIFT_REPEATER);
             event.accept(ModItems.ABADDON);
+            event.accept(ModItems.NECROMANCER);
+            event.accept(ModItems.BONECHILLER);
+            event.accept(ModItems.MACHINE_GUN);
+            event.accept(ModItems.BULLET);
+
 
             event.accept(ModItems.KINGS_HELMET);
             event.accept(ModItems.KINGS_CHESTPLATE);
@@ -122,6 +129,7 @@ public class FunMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            EntityRenderers.register(ModEntities.HUMAN.get(), HumanRenderer::new);
 
         }
     }

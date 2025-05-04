@@ -1,6 +1,7 @@
 package com.sedulous.aslightexpansion.entity;
 
 import com.sedulous.aslightexpansion.FunMod;
+import com.sedulous.aslightexpansion.entity.custom.Human;
 import com.sedulous.aslightexpansion.entity.custom.SkeletonKing;
 import com.sedulous.aslightexpansion.entity.custom.LargeSnowballGunProjectile;
 import com.sedulous.aslightexpansion.entity.custom.SnowballGunProjectile;
@@ -36,6 +37,12 @@ public class ModEntities {
                             .clientTrackingRange(4)
                             .updateInterval(10)
                             .build(ResourceLocation.fromNamespaceAndPath(FunMod.MOD_ID, "large_snowball_gun_projectile").toString()));
+
+    public static final RegistryObject<EntityType<Human>> HUMAN =
+            ENTITY_TYPES.register("human", 
+                    () -> EntityType.Builder.of(Human::new, MobCategory.MONSTER)
+                            .sized(0.6f, 1.96f)
+                            .build(ResourceLocation.fromNamespaceAndPath(FunMod.MOD_ID, "human").toString()));
 
 
     public static void register(IEventBus eventBus){

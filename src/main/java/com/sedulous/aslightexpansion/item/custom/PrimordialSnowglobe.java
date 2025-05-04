@@ -27,13 +27,14 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
-
-import static org.apache.commons.lang3.RandomUtils.nextDouble;
+import java.util.Map;
 
 @Mod.EventBusSubscriber(modid = FunMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class PrimordialSnowglobe extends Item {
+
+    private static final Map<LivingEntity, Integer> entitySlownessTimers = new HashMap<>();
 
     public PrimordialSnowglobe(Properties properties) {
         super(properties.stacksTo(1).rarity(Rarity.EPIC));
@@ -48,7 +49,7 @@ public class PrimordialSnowglobe extends Item {
 
         tooltip.add(Component.literal("Frigid Wasteland:").setStyle(goldStyle));
         tooltip.add(Component.literal("While in your offhand, generates a ring of snow particles.").setStyle(darkGreyStyle));
-        tooltip.add(Component.literal("All hostile entities inside the ring are slowed and weakened.").setStyle(darkGreyStyle));
+        tooltip.add(Component.literal("All hostile entities inside the ring are inflicted with an increasing slowness and are weakened.").setStyle(darkGreyStyle));
     }
 
     @SubscribeEvent
@@ -74,9 +75,19 @@ public class PrimordialSnowglobe extends Item {
             });
 
             for (LivingEntity entity : entities) {
-                entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20, 1, false, true));
-                entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 2, 1, false, false));
+                int time = entitySlownessTimers.getOrDefault(entity, 0) + 1;
+                entitySlownessTimers.put(entity, time);
+                int amplifier = Math.min(time / 30, 3); //
+
+                entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, amplifier, false, true));
+                entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 20, 1, false, false));
             }
+
+            // Clean up entities no longer in range
+            entitySlownessTimers.keySet().removeIf(entity -> !entities.contains(entity) || !entity.isAlive());
+        } else if (offhandItem.getItem() instanceof PrimordialSnowglobe == false) {
+            // Reset all timers if item is not held anymore
+            entitySlownessTimers.clear();
         }
     }
 
@@ -116,7 +127,4 @@ public class PrimordialSnowglobe extends Item {
             }
         }
     }
-
 }
-
-
