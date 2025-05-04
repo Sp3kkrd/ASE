@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "funmod:adamantium_block"
+      "item": "aslightexpansion:adamantium_block"
     }
   ],
   "result": {
     "count": 9,
-    "id": "funmod:adamantium"
+    "id": "aslightexpansion:adamantium"
   }
 }

@@ -1,7 +1,7 @@
 package com.sedulous.aslightexpansion.entity.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.sedulous.aslightexpansion.FunMod;
+import com.sedulous.aslightexpansion.ASlightExpansion;
 import com.sedulous.aslightexpansion.entity.custom.SkeletonKing;
 import net.minecraft.client.model.SkeletonModel;
 import net.minecraft.client.model.geom.ModelLayers;
@@ -28,7 +28,7 @@ public class SkeletonKingRenderer extends MobRenderer<SkeletonKing, SkeletonMode
 
     @Override
     public ResourceLocation getTextureLocation(SkeletonKing skeletonKing) {
-        return ResourceLocation.fromNamespaceAndPath(FunMod.MOD_ID, "textures/entity/skeleton_king.png");
+        return ResourceLocation.fromNamespaceAndPath(ASlightExpansion.MOD_ID, "textures/entity/skeleton_king.png");
     }
 
     @Override

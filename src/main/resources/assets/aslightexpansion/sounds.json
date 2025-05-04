@@ -1,0 +1,11 @@
+{
+  "gunshot": {
+    "category": "player",
+    "sounds": [
+      {
+        "name": "aslightexpansion:gunshot",
+        "stream": false
+      }
+    ]
+  }
+}

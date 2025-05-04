@@ -1,6 +1,6 @@
 package com.sedulous.aslightexpansion.item.custom;
 
-import com.sedulous.aslightexpansion.FunMod;
+import com.sedulous.aslightexpansion.ASlightExpansion;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.LivingEntity;
@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.HashMap;
 
-@Mod.EventBusSubscriber(modid = FunMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+@Mod.EventBusSubscriber(modid = ASlightExpansion.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class MindsEye extends SwordItem {
 
     private static final int COOLDOWN_TICKS = 200; // 10 seconds

@@ -1,23 +1,21 @@
 package com.sedulous.aslightexpansion.item;
 
-import com.sedulous.aslightexpansion.entity.ModEntities;
 import com.sedulous.aslightexpansion.item.custom.*;
 import net.minecraft.world.item.*;
-import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import com.sedulous.aslightexpansion.FunMod;
+import com.sedulous.aslightexpansion.ASlightExpansion;
 
 import static com.sedulous.aslightexpansion.item.ModToolTiers.UNIQUE;
 import static net.minecraft.world.item.Tiers.DIAMOND;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
-            DeferredRegister.create(ForgeRegistries.ITEMS, FunMod.MOD_ID);
+            DeferredRegister.create(ForgeRegistries.ITEMS, ASlightExpansion.MOD_ID);
     //Minerals
     public static final RegistryObject<Item> ADAMANTIUM = ITEMS.register("adamantium",
         () -> new Item(new Item.Properties()));

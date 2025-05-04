@@ -1,13 +1,11 @@
 package com.sedulous.aslightexpansion.event;
 
 
-import com.sedulous.aslightexpansion.FunMod;
+import com.sedulous.aslightexpansion.ASlightExpansion;
 import com.sedulous.aslightexpansion.entity.ModEntities;
 import com.sedulous.aslightexpansion.entity.client.HumanModel;
 import com.sedulous.aslightexpansion.entity.client.HumanRenderer;
 import com.sedulous.aslightexpansion.entity.custom.Human;
-import net.minecraft.client.model.HumanoidModel;
-import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
@@ -16,7 +14,7 @@ import net.minecraftforge.fml.common.Mod;
 import com.sedulous.aslightexpansion.entity.client.SkeletonKingRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 
-@Mod.EventBusSubscriber(modid = FunMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@Mod.EventBusSubscriber(modid = ASlightExpansion.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ModEventBusEvents {
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {

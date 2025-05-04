@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "funmod:adamantium_block",
+          "name": "aslightexpansion:adamantium_block",
           "conditions": [
             {
               "condition": "minecraft:survives_explosion"
@@ -16,5 +16,5 @@
       ]
     }
   ],
-  "random_sequence": "funmod:blocks/adamantium_block"
+  "random_sequence": "aslightexpansion:blocks/adamantium_block"
 }

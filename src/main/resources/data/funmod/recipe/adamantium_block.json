@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "A": {
-      "item": "funmod:adamantium"
+      "item": "aslightexpansion:adamantium"
     }
   },
   "pattern": [
@@ -13,6 +13,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "funmod:adamantium_block"
+    "id": "aslightexpansion:adamantium_block"
   }
 }

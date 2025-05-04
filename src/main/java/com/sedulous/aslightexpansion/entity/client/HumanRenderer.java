@@ -1,6 +1,6 @@
 package com.sedulous.aslightexpansion.entity.client;
 
-import com.sedulous.aslightexpansion.FunMod;
+import com.sedulous.aslightexpansion.ASlightExpansion;
 import com.sedulous.aslightexpansion.entity.custom.Human;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
@@ -13,7 +13,7 @@ public class HumanRenderer extends MobRenderer<Human, HumanModel<Human>> {
 
     @Override
     public ResourceLocation getTextureLocation(Human entity) {
-        return ResourceLocation.fromNamespaceAndPath("funmod", "textures/entity/human.png");
+        return ResourceLocation.fromNamespaceAndPath(ASlightExpansion.MOD_ID, "textures/entity/human.png");
     }
 
 }

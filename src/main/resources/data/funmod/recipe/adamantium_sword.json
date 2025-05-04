@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "A": {
-      "item": "funmod:adamantium"
+      "item": "aslightexpansion:adamantium"
     },
     "X": {
       "item": "minecraft:stick"
@@ -16,6 +16,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "funmod:adamantium_sword"
+    "id": "aslightexpansion:adamantium_sword"
   }
 }

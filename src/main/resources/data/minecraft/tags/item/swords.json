@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "funmod:adamantium_sword",
-    "funmod:kings_claymore"
+    "aslightexpansion:adamantium_sword",
+    "aslightexpansion:kings_claymore"
   ]
 }

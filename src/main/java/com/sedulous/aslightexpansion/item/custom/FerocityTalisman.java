@@ -1,6 +1,6 @@
 package com.sedulous.aslightexpansion.item.custom;
 
-import com.sedulous.aslightexpansion.FunMod;
+import com.sedulous.aslightexpansion.ASlightExpansion;
 import net.minecraft.network.chat.Style;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -11,15 +11,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.level.Level;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import javax.annotation.Nullable;
 import java.util.List;
 
-@Mod.EventBusSubscriber(modid = FunMod.MOD_ID)
+@Mod.EventBusSubscriber(modid = ASlightExpansion.MOD_ID)
 public class FerocityTalisman extends Item {
 
     public FerocityTalisman(Properties properties) {
