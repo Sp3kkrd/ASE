@@ -66,6 +66,11 @@ public class ASlightExpansion
 
     }
 
+    private void clientSetup(final FMLClientSetupEvent event)
+    {
+
+    }
+
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
@@ -94,11 +99,21 @@ public class ASlightExpansion
             event.accept(ModItems.MACHINE_GUN);
             event.accept(ModItems.BULLET);
 
+            event.accept(ModItems.SAND_SCOURGE_STAFF);
+
 
             event.accept(ModItems.KINGS_HELMET);
             event.accept(ModItems.KINGS_CHESTPLATE);
             event.accept(ModItems.KINGS_LEGGINGS);
             event.accept(ModItems.KINGS_BOOTS);
+            event.accept(ModItems.NATURE_HELMET);
+            event.accept(ModItems.NATURE_CHESTPLATE);
+            event.accept(ModItems.NATURE_LEGGINGS);
+            event.accept(ModItems.NATURE_BOOTS);
+            event.accept(ModItems.FREELANCER_HELMET);
+            event.accept(ModItems.FREELANCER_CHESTPLATE);
+            event.accept(ModItems.FREELANCER_LEGGINGS);
+            event.accept(ModItems.FREELANCER_BOOTS);
         }
 
         if(event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
@@ -122,15 +137,4 @@ public class ASlightExpansion
 
     }
 
-    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents
-    {
-        @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event)
-        {
-            EntityRenderers.register(ModEntities.HUMAN.get(), HumanRenderer::new);
-
-        }
-    }
 }

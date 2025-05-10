@@ -29,7 +29,21 @@
   "item.aslightexpansion.kings_leggings": "King's Leggings",
   "item.aslightexpansion.kings_boots": "King's Boots",
 
-  "entitiy.aslightexpansion.skeleton_king": "Skeleton King",
+  "item.aslightexpansion.nature_helmet": "Idol of Nature Mask",
+  "item.aslightexpansion.nature_chestplate": "Idol of Nature Harness",
+  "item.aslightexpansion.nature_leggings": "Idol of Nature Leggings",
+  "item.aslightexpansion.nature_boots": "Idol of Nature Boots",
+
+  "item.aslightexpansion.freelancer_helmet": "Freelancer's Helmet",
+  "item.aslightexpansion.freelancer_chestplate": "Freelancer's Jacket",
+  "item.aslightexpansion.freelancer_leggings": "Freelancer's Pants",
+  "item.aslightexpansion.freelancer_boots": "Freelancer's Boots",
+
+  "item.aslightexpansion.sand_scourge_staff": "Sand Scourge Staff",
+
+  "entity.aslightexpansion.skeleton_king": "Skeleton King",
+  "entity.aslightexpansion.human": "Human",
+  "entity.aslightexpansion.sand_shaman": "Decaying Shaman",
 
   "block.aslightexpansion.adamantium_block": "Adamantium Block"
 

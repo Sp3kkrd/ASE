@@ -41,12 +41,9 @@ public class PrimordialSnowglobe extends Item {
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
         super.appendHoverText(stack, context, tooltip, flag);
 
-        Style goldStyle = Style.EMPTY.withColor(TextColor.fromRgb(0xFFD700));
-        Style darkGreyStyle = Style.EMPTY.withColor(TextColor.fromRgb(0xA9A9A9));
-
-        tooltip.add(Component.literal("Frigid Wasteland:").setStyle(goldStyle));
-        tooltip.add(Component.literal("While in your offhand, generates a ring of snow particles.").setStyle(darkGreyStyle));
-        tooltip.add(Component.literal("All hostile entities inside the ring are inflicted with an increasing slowness and are weakened.").setStyle(darkGreyStyle));
+        tooltip.add(Component.literal("Frigid Wasteland:"));
+        tooltip.add(Component.literal("§7While in your offhand, generates a ring of snow particles."));
+        tooltip.add(Component.literal("§7All hostile entities inside the ring are inflicted with an increasing slowness and are weakened."));
     }
 
     @SubscribeEvent

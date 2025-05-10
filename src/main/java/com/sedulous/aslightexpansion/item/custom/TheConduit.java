@@ -38,12 +38,9 @@ public class TheConduit extends SwordItem {
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
         super.appendHoverText(stack, context, tooltip, flag);
 
-        Style goldStyle = Style.EMPTY.withColor(TextColor.fromRgb(0xFFD700));
-        Style darkGreyStyle = Style.EMPTY.withColor(TextColor.fromRgb(0xA9A9A9));
-
-        tooltip.add(Component.literal("Rampant Conduction:").setStyle(goldStyle));
-        tooltip.add(Component.literal("On hit, 25% chance to summon lightning on the target.").setStyle(darkGreyStyle));
-        tooltip.add(Component.literal("Kills increase the chance to 50% for 10 seconds.").setStyle(darkGreyStyle));
+        tooltip.add(Component.literal("§6Rampant Conduction:"));
+        tooltip.add(Component.literal("§7On hit, 25% chance to summon lightning on the target."));
+        tooltip.add(Component.literal("§7Kills increase the chance to 50% for 10 seconds."));
     }
 
 

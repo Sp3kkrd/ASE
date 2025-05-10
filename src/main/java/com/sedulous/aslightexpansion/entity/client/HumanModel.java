@@ -11,6 +11,7 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import net.minecraft.world.entity.AnimationState;
 
 public class HumanModel<T extends Human> extends HierarchicalModel<T> {
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath("aslightexpansion", "human"), "main");
@@ -18,10 +19,11 @@ public class HumanModel<T extends Human> extends HierarchicalModel<T> {
     private final ModelPart headwear;
     private final ModelPart body;
     private final ModelPart left_arm;
-    private final ModelPart right_arm;
+    final ModelPart right_arm;
     private final ModelPart left_leg;
     private final ModelPart right_leg;
     private final ModelPart root;
+
 
     public HumanModel(ModelPart root) {
         this.root = root;
@@ -63,6 +65,8 @@ public class HumanModel<T extends Human> extends HierarchicalModel<T> {
         this.animateWalk(HumanAnimations.WALK, limbSwing, limbSwingAmount, 2f, 2.5f);
         this.animate(entity.attackAnimationState, HumanAnimations.ATTACK, ageInTicks);
         this.animate(entity.idleAnimationState, HumanAnimations.IDLE, ageInTicks, 1f);
+
+
     }
 
     private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch) {

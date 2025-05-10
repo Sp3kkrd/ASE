@@ -1,0 +1,13 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "minecraft:desert"
+    ],
+  "spawners":
+    {
+      "type": "aslightexpansion:sand_shaman",
+      "weight": 25,
+      "minCount": 1,
+      "maxCount": 1
+    }
+}

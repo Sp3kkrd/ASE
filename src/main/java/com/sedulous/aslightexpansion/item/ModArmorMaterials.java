@@ -27,6 +27,24 @@ public class ModArmorMaterials {
                 attribute.put(ArmorItem.Type.BODY, 11);
             }), 15, 4f, 0.1f, () -> ModItems.ADAMANTIUM.get());
 
+    public static final Holder<ArmorMaterial> NATURE_MATERIAL = register("nature", Util.make(new EnumMap<>(ArmorItem.Type.class),
+            attribute -> {
+                attribute.put(ArmorItem.Type.BOOTS, 2);
+                attribute.put(ArmorItem.Type.LEGGINGS, 4);
+                attribute.put(ArmorItem.Type.CHESTPLATE, 5);
+                attribute.put(ArmorItem.Type.HELMET, 2);
+                attribute.put(ArmorItem.Type.BODY, 6);
+            }), 15, 2f, 0.1f, () -> ModItems.ADAMANTIUM.get());
+
+    public static final Holder<ArmorMaterial> FREELANCER_MATERIAL = register("freelancer", Util.make(new EnumMap<>(ArmorItem.Type.class),
+            attribute -> {
+                attribute.put(ArmorItem.Type.BOOTS, 2);
+                attribute.put(ArmorItem.Type.LEGGINGS, 5);
+                attribute.put(ArmorItem.Type.CHESTPLATE, 6);
+                attribute.put(ArmorItem.Type.HELMET, 2);
+                attribute.put(ArmorItem.Type.BODY, 9);
+            }), 15, 4f, 0.1f, () -> ModItems.ADAMANTIUM.get());
+
     private static Holder<ArmorMaterial> register(String name, EnumMap<ArmorItem.Type, Integer> typeProtection,
                                                   int enchantability, float toughness, float knockbackResistance,
                                                   Supplier<Item> ingredientItem) {

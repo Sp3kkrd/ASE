@@ -34,12 +34,10 @@ public class MagmaRing extends Item {
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
         super.appendHoverText(stack, context, tooltip, flag);
 
-        Style goldStyle = Style.EMPTY.withColor(TextColor.fromRgb(0xFFD700));
-        Style darkGreyStyle = Style.EMPTY.withColor(TextColor.fromRgb(0xA9A9A9));
 
-        tooltip.add(Component.literal("Flaming Embrace:").setStyle(goldStyle));
-        tooltip.add(Component.literal("While the ring is in your offhand, you gain Fire Resistance.").setStyle(darkGreyStyle));
-        tooltip.add(Component.literal("While you are on fire, you deal 25% more damage.").setStyle(darkGreyStyle));
+        tooltip.add(Component.literal("§6Flaming Embrace:"));
+        tooltip.add(Component.literal("§7While the ring is in your offhand, you gain Fire Resistance."));
+        tooltip.add(Component.literal("§7While you are on fire, you deal 25% more damage."));
     }
 
     @SubscribeEvent

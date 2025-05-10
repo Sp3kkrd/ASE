@@ -26,7 +26,7 @@ public class AutoSnowballCannon extends Item {
     @Override
     public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
         pTooltipComponents.add(Component.literal("§6Packed Snowball:"));
-        pTooltipComponents.add(Component.literal("§720% chance per shot to fire a larger snowball that deals double damage and inflicts a more potent slow."));
+        pTooltipComponents.add(Component.literal("§820% chance per shot to fire a larger snowball that deals double damage and inflicts a more potent slow."));
         pTooltipComponents.add(Component.literal(""));
         pTooltipComponents.add(Component.literal("§2Damage: 3"));
         pTooltipComponents.add(Component.literal("§2Fire Rate: 8"));

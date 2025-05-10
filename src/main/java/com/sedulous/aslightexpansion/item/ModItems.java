@@ -66,9 +66,13 @@ public class ModItems {
         public static final RegistryObject<Item> TALIS_FER = ITEMS.register("ferocity_talisman",
              () -> new FerocityTalisman(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 
+        //Staffs
+        public static final RegistryObject<Item> SAND_SCOURGE_STAFF = ITEMS.register("sand_scourge_staff",
+                () -> new SandScourgeStaff(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+
         //Guns
         public static final RegistryObject<Item> BULLET = ITEMS.register("bullet",
-                () -> new Item(new Item.Properties()));
+                () -> new Item(new Item.Properties().stacksTo(99)));
 
     public static final RegistryObject<Item> MAKESHIFT_GUN = ITEMS.register("makeshift_gun",
             () -> new GunItem(2,15, 13, new Item.Properties().stacksTo(1).rarity(Rarity.COMMON)));
@@ -101,6 +105,32 @@ public class ModItems {
                     new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(Integer.MAX_VALUE))));
     public static final RegistryObject<Item> KINGS_BOOTS = ITEMS.register("kings_boots",
             () -> new ArmorItem(ModArmorMaterials.KINGS_MATERIAL, ArmorItem.Type.BOOTS,
+                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(Integer.MAX_VALUE))));
+
+    public static final RegistryObject<Item> NATURE_HELMET = ITEMS.register("nature_helmet",
+            () -> new NatureArmorItem(ModArmorMaterials.NATURE_MATERIAL, ArmorItem.Type.HELMET,
+                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(Integer.MAX_VALUE))));
+    public static final RegistryObject<Item> NATURE_CHESTPLATE = ITEMS.register("nature_chestplate",
+            () -> new NatureArmorItem(ModArmorMaterials.NATURE_MATERIAL, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(Integer.MAX_VALUE))));
+    public static final RegistryObject<Item> NATURE_LEGGINGS = ITEMS.register("nature_leggings",
+            () -> new NatureArmorItem(ModArmorMaterials.NATURE_MATERIAL, ArmorItem.Type.LEGGINGS,
+                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(Integer.MAX_VALUE))));
+    public static final RegistryObject<Item> NATURE_BOOTS = ITEMS.register("nature_boots",
+            () -> new NatureArmorItem(ModArmorMaterials.NATURE_MATERIAL, ArmorItem.Type.BOOTS,
+                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(Integer.MAX_VALUE))));
+
+    public static final RegistryObject<Item> FREELANCER_HELMET = ITEMS.register("freelancer_helmet",
+            () -> new ArmorItem(ModArmorMaterials.FREELANCER_MATERIAL, ArmorItem.Type.HELMET,
+                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(Integer.MAX_VALUE))));
+    public static final RegistryObject<Item> FREELANCER_CHESTPLATE = ITEMS.register("freelancer_chestplate",
+            () -> new ArmorItem(ModArmorMaterials.FREELANCER_MATERIAL, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(Integer.MAX_VALUE))));
+    public static final RegistryObject<Item> FREELANCER_LEGGINGS = ITEMS.register("freelancer_leggings",
+            () -> new ArmorItem(ModArmorMaterials.FREELANCER_MATERIAL, ArmorItem.Type.LEGGINGS,
+                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(Integer.MAX_VALUE))));
+    public static final RegistryObject<Item> FREELANCER_BOOTS = ITEMS.register("freelancer_boots",
+            () -> new ArmorItem(ModArmorMaterials.FREELANCER_MATERIAL, ArmorItem.Type.BOOTS,
                     new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(Integer.MAX_VALUE))));
 
     @SubscribeEvent

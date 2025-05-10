@@ -39,12 +39,9 @@ public class MindsEye extends SwordItem {
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
         super.appendHoverText(stack, context, tooltip, flag);
 
-        Style goldStyle = Style.EMPTY.withColor(TextColor.fromRgb(0xFFD700));
-        Style darkGreyStyle = Style.EMPTY.withColor(TextColor.fromRgb(0xA9A9A9));
-
-        tooltip.add(Component.literal("Eye of the Unseen:").setStyle(goldStyle));
-        tooltip.add(Component.literal("Press [Use Item] to afflict nearby mobs with Glowing for 20 seconds.").setStyle(darkGreyStyle));
-        tooltip.add(Component.literal("Killing a glowing mob grants you Invisibility and Speed for 10 Seconds").setStyle(darkGreyStyle));
+        tooltip.add(Component.literal("§6Eye of the Unseen:"));
+        tooltip.add(Component.literal("§7Press [Use Item] to afflict nearby mobs with Glowing for 20 seconds."));
+        tooltip.add(Component.literal("§7Killing a glowing mob grants you Invisibility and Speed for 10 Seconds"));
     }
 
     @Override
